@@ -1,11 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import {
-  UserIcon,
-  UserCircleIcon,
-  MenuIcom,
-  GlobeAltIcon,
-} from "@heroicons/react/solid";
 
 function Header() {
   return (
