@@ -8,10 +8,15 @@ function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [noOfGuests, setNoOfGuests] = useState(1);
 
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
+  };
+
+  const resetInput = () => {
+    setSearchInput("");
   };
 
   const selectionRange = {
@@ -100,7 +105,34 @@ function Header() {
             minDate={new Date()}
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
-          />{" "}
+          />
+          <div className="flex items-center border-b mb-4">
+            <h2 className="text-2xl flex-grow font-semibold">
+              Number of Guests
+            </h2>
+
+            <svg
+              className="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+            </svg>
+            <input
+              value={noOfGuests}
+              onChange={(e) => setNoOfGuests(e.target.value)}
+              min={1}
+              type="number"
+              className="w-12 pl-2 text-lg outline-none text-red-400"
+            />
+          </div>
+          <div className="flex">
+            <button onClick={resetInput} className="flex-grow text-gray-500 ">
+              Cancel
+            </button>
+            <button className="flex-grow text-red-400 ">Search</button>
+          </div>
         </div>
       )}
     </header>
