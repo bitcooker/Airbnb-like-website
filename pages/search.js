@@ -8,6 +8,7 @@ import InfoCard from "../components/InfoCard";
 function Search({ searchResult }) {
   const router = useRouter();
 
+  console.log(searchResult);
   const { location, startDate, endDate, noOfGuests } = router.query;
 
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
@@ -72,3 +73,6 @@ export async function getServerProps() {
     },
   };
 }
+
+//https://www.jsonkeeper.com/b/5NPS
+//https://links.papareact.com/isz
